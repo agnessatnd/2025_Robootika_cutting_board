@@ -15,17 +15,83 @@ Seade on ehitatud nii, et see oleks töökindel, korduv ja täpne. Lõikeprotses
 
 ## 2. Sisendite loetelu (Diana)
 **Millised on süsteemi poolt loetavad / mõõdetavad sisendid? Millega neid mõõdetakse / tuvastatakse?**
+#### 1. Ajasignaal lõikamise kestuse mõõtmiseks
 
-Kirjelda kõik sisendid eraldi punktidena.  
-Näited (asenda enda projektiga):
+**Allikas:** Arduino süsteemiaeg ``millis()``
 
-- Nupp "vasakule" puldil → IR-sensor loeb signaali
-- Nupp "paremale" puldil → IR-sensor loeb signaali
-- Nupp "+" puldil → IR-sensor loeb signaali (tõsta kiirust)
-- Nupp "-" puldil → IR-sensor loeb signaali (vähenda kiirust)
-- ON/OFF nupp → IR-sensor loeb signaali
+**Mida mõõdab:** kui kaua nuga on all.
 
-👉 _Kui sinu süsteem kasutab muid sensoreid (ultraheli, temperatuuriandur, valgusandur, joystick, BLE telefonis vms), kirjelda need siin koos füüsilise sisendi allikaga._
+**Kasutuskoht:** servo lõikefaasi ajastamine.
+
+**Seotud muutujad:** cutStartTime, cutDuration.
+
+#### 2. Ajasignaal stepperi sammude intervalli jaoks
+
+**Allikas:** ``micros()``
+
+**Mida mõõdab:** sammudevahelist aega mikroteises.
+
+**Kasutuskoht:** määrab stepperi liikumise kiiruse ja ühtluse.
+
+**Seotud muutujad:** lastStepTime, stepInterval.
+
+#### 3. Oleku sisend: lõikamise olek
+
+**Allikas:** programmisisene väärtus ``isCutting``
+
+**Mida näitab:** kas nuga on praegu all.
+
+**Kasutuskoht:** servo juhtimine lõikefaasi ajal.
+
+#### 4. Oleku sisend: lõike lõpetatus
+
+**Allikas:** ``cutDone``
+
+**Mida näitab:** kas konkreetne lõige on lõpule viidud.
+
+**Kasutuskoht:** määrab, kas süsteem läheb pausi või jätkab liikumist.
+
+#### 5. Oleku sisend: pausirežiim
+
+**Allikas:** ``isPaused``
+
+**Mida näitab:** kas stepper on peatatud ja toimub lõikamine.
+
+**Kasutuskoht:** välistab stepperi liikumise lõikefaasis.
+
+#### 6. Sammude loendur
+
+**Allikas:** ``stepsDone``
+
+**Mida mõõdab:** mitu sammu stepper on teinud.
+
+**Kasutuskoht:** kontrollib, millal tuleb aktiveerida lõige või muuta liikumissuunda.
+
+#### 7. Sammupiirang
+
+**Allikas:** ``stepsLimit``
+
+**Mida näitab:** kaugus, mille järel stepper peab tagasi liikuma.
+
+**Kasutuskoht:** otsustab liikumise suunavahetuse.
+
+#### 8. Stepperi liikumissuund
+
+**Allikas:** ``stepDirection``
+
+**Mida näitab:** kas stepper liigub edasi või tagasi.
+
+**Kasutuskoht:** suuna kontrollimine mootorile.
+
+**Väärtused:** 1 edasi, -1 tagasi.
+
+#### 9. Pausitaimer
+
+**Allikas:** ``pauseStart``, ``pauseDuration``, ``millis()``
+
+**Mida mõõdab:** kui kaua kestab lõikejärgne paus.
+
+**Kasutuskoht:** tagab ajastatud viivituse lõikamise ja järgmise liikumise vahel.
 
 ---
 
