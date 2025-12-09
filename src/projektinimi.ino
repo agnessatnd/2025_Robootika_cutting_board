@@ -1,26 +1,112 @@
 #include <Servo.h>
-#define SIGNAL_PIN 3  // Servo juhtimispin
 
-Servo motor;  // Servo mootori objekt
-int currentAngle = 0;  // Praegune nurk
-int increment = 5;     // Nurga muutmise samm (kiirus)
+// ------------ SERVO ------------
+#define SERVO_PIN 5
+Servo servo;
+
+int servoDownAngle = 115;   // nuga all
+int servoUpAngle   = 0;     // nuga üleval
+
+bool isCutting = false;     
+bool cutDone = false;       
+unsigned long cutStartTime = 0;
+unsigned long cutDuration = 800;  // kui kaua nuga on all (ms)
+
+// ------------ STEPPER ------------
+const int dirPin = 2;
+const int stepPin = 3;
+
+int stepDirection = 1;     
+int smallStep = 50;        
+int stepsDone = 0;         
+int stepsLimit = 600;      
+
+unsigned long lastStepTime = 0;
+unsigned long stepInterval = 8000; 
+
+// paus
+unsigned long pauseStart = 0;
+unsigned long pauseDuration = 5000;
+bool isPaused = false;
 
 void setup() {
-  motor.attach(SIGNAL_PIN);  // Ühendame servo mootori
-  Serial.begin(9600);        // Seadistame jadapordi
+  servo.attach(SERVO_PIN);
+  servo.write(servoUpAngle);
+
+  pinMode(dirPin, OUTPUT);
+  pinMode(stepPin, OUTPUT);
+  digitalWrite(dirPin, HIGH);
 }
 
 void loop() {
-  motor.write(currentAngle);  // Määrame servo nurga
-  Serial.print("Servo asend: ");
-  Serial.println(currentAngle);
-  
-  currentAngle += increment;  // Muudame nurka
-  
-  // Muudame suunda kui piirid jõutakse
-  if (currentAngle >= 140 || currentAngle <= 0) {
-    increment = -increment;  // Vastupidine suund
+  unsigned long nowMicros = micros();
+  unsigned long nowMillis = millis();
+
+  if (isPaused) {
+
+    if (!cutDone) {
+
+      if (!isCutting) {
+        // alusta lõikamist (allapoole)
+        servo.write(servoDownAngle);
+        isCutting = true;
+        cutStartTime = nowMillis;
+      }
+
+      // kui nuga on all olnud cutDuration ms → tõsta üles
+      else if (nowMillis - cutStartTime >= cutDuration) {
+        servo.write(servoUpAngle);
+        cutDone = true;     // TÄPSUSEGA ÜKS lõige
+        isCutting = false;
+      }
+    }
+
+    if (cutDone && nowMillis - pauseStart >= pauseDuration) {
+      isPaused = false;
+      cutDone = false;
+      isCutting = false;
+    }
+
+    return;   // Stepper EI LIIGU
   }
-  
-  delay(15);  // Viivitus sujuvuse jaoks (reguleerige vajadusel)
+
+  if (stepDirection == -1) {
+    if (nowMicros - lastStepTime >= stepInterval) {
+      lastStepTime = nowMicros;
+
+      digitalWrite(stepPin, HIGH);
+      delayMicroseconds(5);
+      digitalWrite(stepPin, LOW);
+
+      stepsDone--;
+
+      if (stepsDone <= 0) {
+        stepDirection = 1;
+        digitalWrite(dirPin, HIGH);
+      }
+    }
+    return;
+  }
+
+  if (nowMicros - lastStepTime >= stepInterval) {
+    lastStepTime = nowMicros;
+
+    digitalWrite(stepPin, HIGH);
+    delayMicroseconds(5);
+    digitalWrite(stepPin, LOW);
+
+    stepsDone++;
+
+    if (stepsDone % smallStep == 0) {
+      isPaused = true;
+      pauseStart = nowMillis;
+      cutDone = false;
+      isCutting = false;
+    }
+
+    if (stepsDone >= stepsLimit) {
+      stepDirection = -1;
+      digitalWrite(dirPin, LOW);
+    }
+  }
 }
