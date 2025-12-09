@@ -1,40 +1,38 @@
 # Robootika iseseisev arendusprojekt
-
 See repositoorium on mõeldud IFI6203.DT kursuse "Robootika" üliõpilastele.  
-Iga meeskond **forkib** selle repo ja dokumenteerib siin oma seadme/projekti: 
-- *mis probleemi lahendate ja miks see seade kasulik on;*
-  
-Meie meeskonna eesmärk on luua automaatne kurgi lõikelaud, mis suudab kurki ühtlaselt ja ohutult lõigata ilma käsitsi sekkumiseta.
-Seade aitab säästa aega toiduvalmistamisel ning muudab protsessi turvalisemaks, vähendades lõikevigastuste ohtu.
-- *millest seade koosneb (riistvara, kood, 3D prinditud detailid jne);*
 
-Põhikomponendid:
+### Mis probleemi lahendate ja miks see seade kasulik on
+Meie meeskonna eesmärk on luua automaatne lõikelaud koos lõikemehhanismiga, mis suudab materjali täpselt ja korduvate tsüklite kaupa lõigata ilma käsitsi sekkumiseta. Seade aitab säästa aega, tagab korduvuse ja täpsuse ning vähendab lõikevigastuste ohtu.
 
-Platvorm/alus — vineer, plastik või 3D-prinditud detail (umbes 10×15 cm).
+### Millest seade koosneb (riistvara, kood, 3D-prinditud detailid jne)
+**Põhikomponendid:**
 
-DC-mootor (3–12 V) — võlliga tera kinnitamiseks.
+- **Platvorm/alus:** vahtplaat, kuhu asetatakse materjal (nt banaan)  
+- **Arduino Uno** (mikrokontroller)  
+- **Stepper mootor + AA4988 driver**  
+- **Servo mootor:** DS Servo #DS3218MG, 20 kg, 0.18 s, Digital Servo
+- **Servo alus / hoidik:** 3D-prinditud, et servo oleks stabiilselt paigal  
+- **Toiteallikas**— kasutame 6V
+- **Lõiketera**
+- **Juhtmed** -«isane-isane» ja «emane-isane»
+- **Takisti**
+- **Platvormi kruvid**
+- **Kood on olemas src/сuttingBoard.ino**
 
-Toiteallikas — 9 V patareipesa või 12 V adapter koos lülitiga.
+**Rekvisiit - banaan**
 
-Mini-tera / ketas (võib olla valmistatud alumiiniumist või vanast CD-plaadist, kui see on dekoratiivne versioon).
-
-Juhtmed, klemmid, jootmine / keeramine.
-
-Toed (jalad) — laua tõstmiseks, et mootor mahuks alla.
-
-Rekvisiit — kurk
-
-- *kuidas seade töötab;*
-  
+### Kuidas seade töötab
 Tööpõhimõte:
-1. Kasutaja asetab kurgi seadme hoidikusse.
-2. Andur tuvastab kurgi olemasolu ja käivitab protsessi.
-3. Kurgi etteandemehhanism liigutab kurki ettepoole ühe lõike võrra.
-4. Nuga laskub ja teeb lõike.
-5. Tsükkel kordub, kuni kurk on lõigatud või andur tuvastab, et kurki enam ei ole.
-6. Seade peatub automaatselt ja annab helisignaali (või LED-märguande).
-- *kuidas seda uuesti ehitada.*
+1. Kasutaja asetab materjali (nt banaani) seadme hoidikusse ja kinnitab selle platvormil olevate kahe kruvi abil, et see püsiks paigal vahtplaadi peal.  
+2. Kasutaja lülitab seadme sisse, alustades lõikeprotsessi.  
+3. Stepper mootor liigutab materjali ette ühe lõike võrra.  
+4. Servo mootor  liigutab noa alla ja teeb lõike. Servo on paigaldatud 3D-prinditud alusele, mis tagab stabiilsuse ja täpsuse.  
+5. Tsükkel kordub, kuni materjal on lõigatud või kasutaja lülitab seadme välja.  
+6. Seade peatub automaatselt pärast tsüklite lõppu.
 
+
+   
+- *kuidas seda uuesti ehitada.*
 ## Kuidas seda repo't kasutada
 
 1. Vajuta ülal paremas nurgas **Fork**.
