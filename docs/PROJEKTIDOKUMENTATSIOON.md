@@ -1,11 +1,11 @@
 # Projekti dokumentatsioon
 
-## 1. Projekti eesmärk ja seadme lühikirjeldus
+## 1. Projekti eesmärk ja seadme lühikirjeldus (Diana)
 **Mis asi see on, mida ja miks me teeme? Millist praktilist probleemi see lahendab?**
 
 - Meie projekti eesmärk on luua automaatne lõikelaud koos lõikemehhanismiga, mis suudab töötada korduvate tsüklite kaupa. Lõikelaud liigutab materjali või nuga täpselt etteantud sammudega edasi ning mehhanism viib noa automaatselt alla, teeb kontrollitud lõike ja tõstab selle seejärel algasendisse.
 - Seadet saab kasutada näiteks kus on vaja teha täpseid ja korduvaid lõikeid ilma käsitsi tegutsemiseta. See võib olla kasulik tootmises, hobi-projektides, laboriseadmetes või lihtsalt automatiseeritud lõikamise protsessides, kus on vaja ühtlust, täpsust ja kordust.
-- Peamised komponendid: servo mootor, AA4988 driver, stepper mootor, arduino, nuga, lõikelaua alus. 
+- Peamised komponendid: servo mootor , AA4988 driver, stepper mootor, arduino, nuga, lõikelaua alus. 
 
 **Seadme kirjeldus**
 
@@ -40,7 +40,7 @@ Näited (asenda enda projektiga):
 
 ---
 
-## 4. Nõuded loodavale seadmele
+## 4. Nõuded loodavale seadmele 
 **Mis peab toimuma, kui kasutaja teeb mingi toimingu? Kirjelda käitumisloogika.**
 
 Kirjuta reeglid kujul "Kui X, siis Y".  
@@ -58,7 +58,7 @@ Näited (kohanda enda projektile):
 
 ---
 
-## 5. Süsteemi füüsiliste komponentide loetelu
+## 5. Süsteemi füüsiliste komponentide loetelu (Diana)
 **Millest seade koosneb? Lisa lingid või täpsed nimed, et keegi teine saaks sama asja uuesti osta / teha.**
 
 Tabelina või punktidena. Nt:
@@ -75,7 +75,7 @@ Tabelina või punktidena. Nt:
 
 ---
 
-## 6. Ühendusskeem
+## 6. Ühendusskeem (Agnessa)
 **Kuidas kõik osad on omavahel ühendatud?**
 
 - Lisa siia pilt või skeemi kirjeldus.
@@ -96,7 +96,7 @@ Kui skeemi pole veel joonistatud, siis vähemalt kirjelda tekstina, nt:
 
 ---
 
-## 7. Süsteemi juhtiv kood (või pseudokood)
+## 7. Süsteemi juhtiv kood (või pseudokood) (Aleksandra)
 **Kirjelda programmi loogikat nii, et seda on võimalik aru saada ka hiljem.**  
 Kui kood töötab, pane siia lühike selgitus + viide failile `src/projektinimi.ino`.  
 Kui kood pole veel valmis, lisa siia pseudokood.
