@@ -25,7 +25,7 @@ Seade on ehitatud nii, et see oleks töökindel, korduv ja täpne. Lõikeprotses
 
 - **Kasutuskoht:** servo lõikefaasi ajastamine.
 
-- **Seotud muutujad:** cutStartTime, cutDuration.
+- **Seotud muutujad:** ``cutStartTime``, ``cutDuration``.
 
 #### 2. Ajasignaal stepperi sammude intervalli jaoks
 
@@ -35,7 +35,7 @@ Seade on ehitatud nii, et see oleks töökindel, korduv ja täpne. Lõikeprotses
 
 - **Kasutuskoht:** määrab stepperi liikumise kiiruse ja ühtluse.
 
-- **Seotud muutujad:** lastStepTime, stepInterval.
+- **Seotud muutujad:** ``lastStepTime``, ``stepInterval``
 
 #### 3. Oleku sisend: lõikamise olek
 
