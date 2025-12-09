@@ -3,14 +3,15 @@
 ## 1. Projekti eesmärk ja seadme lühikirjeldus
 **Mis asi see on, mida ja miks me teeme? Millist praktilist probleemi see lahendab?**
 
-Näide stiilist:
-- Meie projekti eesmärk on luua ventilaator, mida saab juhtida infrapuna puldiga.
-- Seadet saab kasutada näiteks ruumi jahutamiseks olukorras, kus käega lülitile ulatamine on ebamugav.
-- Peamised komponendid: elektrimootor, servo, ventilaatori labad (3D prinditud), Arduino mikrokontroller.
+- Meie projekti eesmärk on luua automaatne lõikelaud koos lõikemehhanismiga, mis suudab töötada korduvate tsüklite kaupa. Lõikelaud liigutab materjali või nuga täpselt etteantud sammudega edasi ning mehhanism viib noa automaatselt alla, teeb kontrollitud lõike ja tõstab selle seejärel algasendisse.
+- Seadet saab kasutada näiteks kus on vaja teha täpseid ja korduvaid lõikeid ilma käsitsi tegutsemiseta. See võib olla kasulik tootmises, hobi-projektides, laboriseadmetes või lihtsalt automatiseeritud lõikamise protsessides, kus on vaja ühtlust, täpsust ja kordust.
+- Peamised komponendid: servo mootor, AA4988 driver, stepper mootor, arduino, nuga, lõikelaua alus. 
 
-👉 _Asenda see kirjeldus enda seadme kirjeldusega._
+**Seadme kirjeldus**
 
----
+Seade koosneb automaatsest lõikemehhanismist ja lõikelaua liikumissüsteemist, mis töötavad koos, et teha korduvaid ja täpseid lõikeid ilma kasutaja käsitsi sekkumiseta. Lõikemehhanismi vertikaalse liikumise eest vastutab servo mootor, mis liigutab nuga etteantud nurgani alla ja seejärel tõstab selle tagasi üles. Lõikelaua horisontaalse liikumise eest vastutab stepper mootor, mis nihutab lõigatavat materjali kindlate sammudega edasi pärast iga lõikefaasi.
+Süsteem töötab tsükliliselt. Stepper liigutab lauda etteantud vahemaa. Seejärel servo aktiveerub, nuga viiakse alla ja hoitakse all täpselt määratud aja, et tagada stabiilne lõige. Kui lõige on tehtud, servo tõstab noa algasendisse ja süsteem valmistub järgmiseks sammuks. Kõik ajastused, lõikefaasid ja sammukontroll on lahendatud Arduino mikrokontrolleri abil.
+Seade on ehitatud nii, et see oleks töökindel, korduv ja täpne. Lõikeprotsessis kasutatakse olekulippe ja taimeripõhist loogikat, mis tagab, et lõikamine ja liikumine toimuvad õiges järjekorras ja ilma konfliktideta. Tulemuseks on autonoomne lõikemasin, mis sobib hästi materjalide seeriatöötluseks või protsesside automatiseerimiseks, kus on vaja ühesuguseid ja korduvaid lõikeid.
 
 ## 2. Sisendite loetelu
 **Millised on süsteemi poolt loetavad / mõõdetavad sisendid? Millega neid mõõdetakse / tuvastatakse?**
