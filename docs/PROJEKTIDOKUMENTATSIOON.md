@@ -200,7 +200,40 @@ Kui skeemi pole veel joonistatud, siis vähemalt kirjelda tekstina, nt:
 
 ---
 
-## 7. Süsteemi juhtiv kood (või pseudokood) (Aleksandra)
-**Kirjelda programmi loogikat nii, et seda on võimalik aru saada ka hiljem.**  
-Kui kood töötab, pane siia lühike selgitus + viide failile `src/projektinimi.ino`.  
-Kui kood pole veel valmis, lisa siia pseudokood.
+## 7. Süsteemi juhtiv kood (Aleksandra)
+**Kirjeldus:**  
+Arduino juhib automaatset lõikelauda: stepper liigutab materjali horisontaalselt ja servo tõstab/laskub nuga vertikaalselt. Seade töötab tsükliliselt, autonoomselt ja kordab lõikeprotsessi. (Tegelik töötav kood:cuttingBoard.ino)
+
+---
+
+#### Programmi loogika
+
+1. **Algseadistused (`setup`)**
+   - Servo ühendatakse pinnile ja tõstetakse algasendisse (**servoUpAngle**).
+   - Stepperi pinnid seadistatakse väljunditeks; suund algselt ette (**dirPin = HIGH**).
+
+2. **Põhiline tsükkel (`loop`)**
+   - Kui `isPaused = true`, toimub lõikamine:
+     - Servo liigub alla (**servoDownAngle**) ja hoiab aega **cutDuration**.
+     - Pärast lõiget tõstetakse servo üles (**servoUpAngle**).
+     - Kui pausiperiood (**pauseDuration**) möödub → stepper jätkab liikumist.
+   - Kui stepperi sammude intervall möödunud:
+     - Tehakse samm (**stepPin** HIGH→LOW) ja uuendatakse sammude loendur (**stepsDone**).
+     - Iga **cutStepInterval** sammu järel → paus-lõikamine.
+     - Kui stepper jõuab lõpp-punkti (**stepsLimit**) → suund tagurpidi.
+     - Kui stepper jõuab nullpunkti → suund ette.
+
+---
+
+#### Märkused
+- `isPaused` tagab, et stepper peatub lõike ajal.  
+- `isCutting` jälgib, kas servo on all.  
+- `cutDone` märgib, et lõige on lõpetatud.  
+- Ajastamine toimub `millis()` ja `micros()` kaudu, et stepper ja servo ei konflikteeriks.
+
+---
+**Faili asukoht:**  
+- viide failile src/сuttingBoard.ino.
+---
+
+
