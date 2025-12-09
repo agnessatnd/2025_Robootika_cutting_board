@@ -129,20 +129,36 @@ Näited (asenda enda projektiga):
 ---
 
 ## 4. Nõuded loodavale seadmele (Aleksandra)
-**Mis peab toimuma, kui kasutaja teeb mingi toimingu? Kirjelda käitumisloogika.**
+**Reeglid seadme tööks:**
+**Kui stepper liigub edasi ja jõuab määratud sammude intervalli (nt iga 50 sammu), siis:**
+- Stepper peatub automaatselt.
+- Servo aktiveerub ja nuga viiakse alla lõikamiseks (`servoDownAngle`).
+- Lõike kestus ajastatakse `cutDuration` väärtusega.
 
-Kirjuta reeglid kujul "Kui X, siis Y".  
-Näited (kohanda enda projektile):
+**Kui nuga on all ja lõige kestab määratud aja, siis:**
+- Servo tõstab noa tagasi üles (`servoUpAngle`).
+- Lõige märgitakse lõpetatuks (`cutDone = true`).
+- Süsteem ootab järgmise liikumise alustamist pausiperioodi jooksul (`pauseDuration`).
 
-- Kui vajutatakse ON/OFF nuppu, siis:
-  - kui ventilaator on väljas → ventilaator lülitub sisse keskmise kiirusega;
-  - kui ventilaator töötab → ventilaator pöördub keskasendisse ja lülitub välja.
+**Kui paus on lõppenud ja lõige on lõpetatud, siis:**
+- Stepper jätkab liikumist järgmise sammuga.
+- Pausirežiim (`isPaused`) lõpetatakse.
 
-- Kui vajutatakse vasak/noole nuppu, liigub ventilaatori pea iga vajutusega X kraadi vasakule, kuni vasak piir on käes. Kui piir käes, siis rohkem ei liigu.
+**Kui stepper jõuab lõpp-punkti (max sammud, `stepsLimit`), siis:**
+- Stepper muudab liikumissuunda tagurpidi.
+- Suuna juhtimine (`dirPin`) lülitatakse tagasi.
 
-- Kui ventilaator töötab maksimumkiirusel ja vajutatakse "+" → kiirus ei suurene enam.
+**Kui stepper liigub tagasi ja jõuab nullpunkti (0 sammu), siis:**
+- Stepper muutub suunda uuesti edasi liikuma.
+- Suuna juhtimine (`dirPin`) lülitatakse ette.
 
-👉 _Pane siia KÕIK kokkulepitud reeglid. Need reeglid on alus, mille järgi hiljem hinnatakse, kas teie lahendus vastab eesmärgile._
+**Kui kasutaja lülitab süsteemi sisse, siis:**
+- Seade alustab automaatset tsüklit: stepper liigub, servo lõikab, pausid vahelduvad.
+
+**Kui süsteem on töös, siis:**
+- Kõik tegevused toimuvad tsükliliselt ja autonoomselt ilma kasutaja sekkumiseta.
+- Ajastamine ja olekute jälgimine tagab, et stepper ja servo ei konfliktiks.
+
 
 ---
 
