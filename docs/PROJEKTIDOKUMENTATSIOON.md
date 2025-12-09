@@ -17,13 +17,16 @@ Seade on ehitatud nii, et see oleks töökindel, korduv ja täpne. Lõikeprotses
 
 ## 2. Sisendite loetelu (Diana)
 **Millised on süsteemi poolt loetavad / mõõdetavad sisendid? Millega neid mõõdetakse / tuvastatakse?**
+Süsteem töötab autonoomselt. Allpool on kirjeldatud kõik muutujad ja 
+väärtused, mida programm jälgib ja mille põhjal tehakse otsuseid.
+
 #### 1. Ajasignaal lõikamise kestuse mõõtmiseks
 
 - **Allikas:** Arduino süsteemiaeg ``millis()``
 
-- **Mida mõõdab:** kui kaua nuga on all.
+- **Mida määrab:** Kui kaua nuga on all.
 
-- **Kasutuskoht:** servo lõikefaasi ajastamine.
+- **Kasutuskoht:** Servo lõikefaasi ajastamine.
 
 - **Seotud muutujad:** ``cutStartTime``, ``cutDuration``.
 
@@ -31,9 +34,9 @@ Seade on ehitatud nii, et see oleks töökindel, korduv ja täpne. Lõikeprotses
 
 - **Allikas:** ``micros()``
 
-- **Mida mõõdab:** sammudevahelist aega mikroteises.
+- **Mida määrab:** Sammudevahelist aega mikrosekundites.
 
-- **Kasutuskoht:** määrab stepperi liikumise kiiruse ja ühtluse.
+- **Kasutuskoht:** Määrab stepperi liikumise kiiruse ja ühtluse.
 
 - **Seotud muutujad:** ``lastStepTime``, ``stepInterval``
 
@@ -41,49 +44,49 @@ Seade on ehitatud nii, et see oleks töökindel, korduv ja täpne. Lõikeprotses
 
 - **Allikas:** programmisisene väärtus ``isCutting``
 
-- **Mida näitab:** kas nuga on praegu all.
+- **Mida näitab:** Kas nuga on praegu all.
 
-- **Kasutuskoht:** servo juhtimine lõikefaasi ajal.
+- **Kasutuskoht:** Servo juhtimine lõikefaasi ajal.
 
 #### 4. Oleku sisend: lõike lõpetatus
 
 - **Allikas:** ``cutDone``
 
-- **Mida näitab:** kas konkreetne lõige on lõpule viidud.
+- **Mida näitab:** Kas konkreetne lõige on lõpule viidud.
 
-- **Kasutuskoht:** määrab, kas süsteem läheb pausi või jätkab liikumist.
+- **Kasutuskoht:** Määrab, kas süsteem läheb pausi või jätkab liikumist.
 
 #### 5. Oleku sisend: pausirežiim
 
 - **Allikas:** ``isPaused``
 
-- **Mida näitab:** kas stepper on peatatud ja toimub lõikamine.
+- **Mida näitab:** Kas stepper on peatatud ja toimub lõikamine.
 
-- **Kasutuskoht:** välistab stepperi liikumise lõikefaasis.
+- **Kasutuskoht:** Välistab stepperi liikumise lõikefaasis.
 
 #### 6. Sammude loendur
 
 - **Allikas:** ``stepsDone``
 
-- **Mida mõõdab:** mitu sammu stepper on teinud.
+- **Mida määrab:** Mitu sammu stepper on teinud.
 
-- **Kasutuskoht:** kontrollib, millal tuleb aktiveerida lõige või muuta liikumissuunda.
+- **Kasutuskoht:** Kontrollib, millal tuleb aktiveerida lõige või muuta liikumissuunda.
 
 #### 7. Sammupiirang
 
 - **Allikas:** ``stepsLimit``
 
-- **Mida näitab:** kaugus, mille järel stepper peab tagasi liikuma.
+- **Mida näitab:** Maksimumsammuarvu enne liikumissuuna pööramist (edasi→tagasi)
 
-- **Kasutuskoht:** otsustab liikumise suunavahetuse.
+- **Kasutuskoht:** Otsustab liikumise suunavahetuse.
 
 #### 8. Stepperi liikumissuund
 
 - **Allikas:** ``stepDirection``
 
-- **Mida näitab:** kas stepper liigub edasi või tagasi.
+- **Mida näitab:** Kas stepper liigub edasi või tagasi.
 
-- **Kasutuskoht:** suuna kontrollimine mootorile.
+- **Kasutuskoht:** Suuna kontrollimine mootorile.
 
 - **Väärtused:** 1 edasi, -1 tagasi.
 
@@ -91,9 +94,26 @@ Seade on ehitatud nii, et see oleks töökindel, korduv ja täpne. Lõikeprotses
 
 - **Allikas:** ``pauseStart``, ``pauseDuration``, ``millis()``
 
-- **Mida mõõdab:** kui kaua kestab lõikejärgne paus.
+- **Mida määrab:** Kui kaua kestab lõikejärgne paus.
 
-- **Kasutuskoht:** tagab ajastatud viivituse lõikamise ja järgmise liikumise vahel.
+- **Kasutuskoht:** Tagab ajastatud viivituse lõikamise ja järgmise liikumise vahel.
+
+#### 10. Lõike sammude interval
+
+- **Allikas:** ``smallStep``
+
+- **Mida määrab:** Iga mitme sammu järel peab toimuma lõige
+
+- **Kasutuskoht:** Kontrollib lõikefaaside sagedust ``(stepsDone % smallStep == 0)``
+  
+#### 11. Servo nurga parameetrid
+
+- **Allikas:** ``servoDownAngle (115°)``, ``servoUpAngle (0°)``
+
+- **Mida määravad:** Noa vertikaalsed asendid
+
+- **Kasutuskoht:** Servo positsiooni juhtimine lõikamise ajal
+- 
 
 ---
 
