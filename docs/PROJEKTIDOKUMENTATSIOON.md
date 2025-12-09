@@ -182,6 +182,12 @@ Tabelina või punktidena. Nt:
 ## 6. Ühendusskeem (Agnessa)
 **Kuidas kõik osad on omavahel ühendatud?**
 
+<img width="1607" height="555" alt="image" src="https://github.com/user-attachments/assets/b496e2bc-8305-40bb-9029-c12f638ff543" />
+
+Skeemi kirjeldus:
+
+Arduino → A4988
+
 - Lisa siia pilt või skeemi kirjeldus.
 - Fail `hardware/wiring-diagram.png` peab näitama vähemalt:
   - milline pin Arduinol läheb millise komponendi sisendisse,
