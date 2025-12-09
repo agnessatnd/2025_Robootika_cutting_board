@@ -17,6 +17,7 @@ Seade on ehitatud nii, et see oleks töökindel, korduv ja täpne. Lõikeprotses
 
 ## 2. Sisendite loetelu (Diana)
 **Millised on süsteemi poolt loetavad / mõõdetavad sisendid? Millega neid mõõdetakse / tuvastatakse?**
+
 Süsteem töötab autonoomselt. Allpool on kirjeldatud kõik muutujad ja 
 väärtused, mida programm jälgib ja mille põhjal tehakse otsuseid.
 
@@ -113,7 +114,6 @@ väärtused, mida programm jälgib ja mille põhjal tehakse otsuseid.
 - **Mida määravad:** Noa vertikaalsed asendid
 
 - **Kasutuskoht:** Servo positsiooni juhtimine lõikamise ajal
-- 
 
 ---
 
