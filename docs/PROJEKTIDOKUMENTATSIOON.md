@@ -13,7 +13,7 @@ Seade koosneb automaatsest lõikemehhanismist ja lõikelaua liikumissüsteemist,
 Süsteem töötab tsükliliselt. Stepper liigutab lauda etteantud vahemaa. Seejärel servo aktiveerub, nuga viiakse alla ja hoitakse all täpselt määratud aja, et tagada stabiilne lõige. Kui lõige on tehtud, servo tõstab noa algasendisse ja süsteem valmistub järgmiseks sammuks. Kõik ajastused, lõikefaasid ja sammukontroll on lahendatud Arduino mikrokontrolleri abil.
 Seade on ehitatud nii, et see oleks töökindel, korduv ja täpne. Lõikeprotsessis kasutatakse olekulippe ja taimeripõhist loogikat, mis tagab, et lõikamine ja liikumine toimuvad õiges järjekorras ja ilma konfliktideta. Tulemuseks on autonoomne lõikemasin, mis sobib hästi materjalide seeriatöötluseks või protsesside automatiseerimiseks, kus on vaja ühesuguseid ja korduvaid lõikeid.
 
-## 2. Sisendite loetelu
+## 2. Sisendite loetelu (Diana)
 **Millised on süsteemi poolt loetavad / mõõdetavad sisendid? Millega neid mõõdetakse / tuvastatakse?**
 
 Kirjelda kõik sisendid eraldi punktidena.  
@@ -29,7 +29,7 @@ Näited (asenda enda projektiga):
 
 ---
 
-## 3. Väljundite loetelu
+## 3. Väljundite loetelu (Agnessa)
 **Mida süsteem teeb / muudab? Millega väljund realiseeritakse?**
 
 Näited (asenda enda projektiga):
@@ -40,7 +40,7 @@ Näited (asenda enda projektiga):
 
 ---
 
-## 4. Nõuded loodavale seadmele 
+## 4. Nõuded loodavale seadmele (Aleksandra)
 **Mis peab toimuma, kui kasutaja teeb mingi toimingu? Kirjelda käitumisloogika.**
 
 Kirjuta reeglid kujul "Kui X, siis Y".  
@@ -58,7 +58,7 @@ Näited (kohanda enda projektile):
 
 ---
 
-## 5. Süsteemi füüsiliste komponentide loetelu (Diana)
+## 5. Süsteemi füüsiliste komponentide loetelu (Alina)
 **Millest seade koosneb? Lisa lingid või täpsed nimed, et keegi teine saaks sama asja uuesti osta / teha.**
 
 Tabelina või punktidena. Nt:
