@@ -166,21 +166,67 @@ Süsteem juhib kahte erinevat mootorit: stepper mootorit ja servo mootorit.
 ---
 
 ## 5. Süsteemi füüsiliste komponentide loetelu (Alina)
-**Millest seade koosneb? Lisa lingid või täpsed nimed, et keegi teine saaks sama asja uuesti osta / teha.**
 
-Tabelina või punktidena. Nt:
+Allpool on loetletud kõik füüsilised komponendid, millest automaatne lõikelaud koosneb. Iga komponent on valitud nii, et seadet oleks võimalik lihtsalt taastoota ja ehitada ka teistel kasutajatel.
 
-- Arduino Uno (mikrokontroller)
-- IR-vastuvõtja + pult (tüüp: XY123)  
-- Väike elektrimootor (DC, ___ V)
-- Mootoridraiver (L298N vms)
-- Servo (mudel: SG90 / MG90S / muu)
-- 3D-prinditud ventilaatori labad (STL-failid lisage kataloogi `hardware/`)
-- Toiteallikas (___ V / ___ A)
+### Mikrokontroller ja juhtimine
 
-👉 _Kui ise tegite 3D mudeli, lisage STL või Fusion faili `hardware/` alla. Kui kasutasite netist leitud mudelit, märkige allikas._
+- **Arduino Uno R3**
+  - Mikrokontroller, mis juhib kogu süsteemi loogikat
+  - Vastutab servo ja stepper-mootori juhtimise, ajastuste ja olekute eest
+  - Toide: 5V
+  - Link: https://store.arduino.cc/products/arduino-uno-rev3
 
----
+### Mootorid ja liikumine
+
+- **Stepper-mootor (nt NEMA 17)**
+  - Tagab lõikelaua horisontaalse liikumise samm-sammult
+  - Võimaldab väga täpset ja korduvat positsioneerimist
+  - Töötab koos A4988 draiveriga
+
+- **Stepper-mootori draiver A4988**
+  - Juhib stepper-mootori samme ja suunda
+  - Võimaldab reguleerida sammude kiirust ja täpsust
+  - Toide: loogika 5V, mootor eraldi toiteallikast
+  - Link: https://www.pololu.com/product/1182
+
+- **Servomootor (nt SG90 või MG90S)**
+  - Vastutab noa vertikaalse liikumise eest (üles/alla)
+  - Juhtimine PWM-signaaliga Arduino kaudu
+  - Valik:
+    - SG90 – kerge koormuse jaoks
+    - MG90S – metallhammasratastega, suurem vastupidavus
+
+### Lõikemehhanism
+
+- **Nuga / lõiketera**
+  - Mehaaniline lõikeelement
+  - Kinnitatud servomootori hoova külge
+  - Valik sõltub lõigatavat materjalist (paber, kile, pehme plastik jne)
+
+- **Lõikelaua alus (mehhaaniline raam)**
+  - Hoiab lõigatavat materjali paigal
+  - Võib olla:
+    - puidust
+    - alumiiniumist
+    - 3D-prinditud osaliselt
+  - Tagab stabiilsuse lõikamise ajal
+
+### Toide ja ühendused
+
+- **Väline toiteallikas (≈ 6–12V, ≥ 2A)**
+  - Toidab stepper-mootorit läbi A4988 draiveri
+  - Servo ja Arduino saavad 5V toite Arduinolt või stabilisaatori kaudu
+
+- **Breadboard (katseplaat)**
+  - Kasutatakse ühenduste loomiseks ilma jootmiseta
+
+- **Jumper-kaablid (M–M, M–F)**
+  - Elektriliste ühenduste tegemiseks komponentide vahel
+
+- **Takisti (nt 10 kΩ, vajadusel)**
+  - Kasutatakse signaalide stabiliseerimiseks või katse-eesmärgil
+
 
 ## 6. Ühendusskeem (Agnessa)
 
