@@ -30,9 +30,13 @@ Tööpõhimõte:
 5. Tsükkel kordub, kuni materjal on lõigatud või kasutaja lülitab seadme välja.  
 6. Seade peatub automaatselt pärast tsüklite lõppu.
 
-
+### Kuidas seda uuesti ehitada
+1. **Kogu komponendid:** Arduino Uno, A4988 + stepper, DS3218MG servo, 6V toide, lõiketera, vahtplaat, 3D-hoidik, juhtmed, 2 kruvi.
+2. **Pane mehhaanika kokku:** vahtplaadist alus + kruvid materjali kinnitamiseks; servo kinnita 3D-prinditud hoidikule; stepper joonda liikumiseks.
+3. **Ühenda elektroonika:** stepper → A4988 → Arduino, servo → Arduino, ühine GND ja toide. Skeem: `hardware/wiring-diagram.png`.
+4. **Laadi kood:** ava `src/cuttingBoard.ino` ja laadi see Arduino Unosse.
+5. **Kasuta:** kinnita materjal(banaan) kruvidele ja lülita seade sisse – lõikamine toimub automaatselt.
    
-- *kuidas seda uuesti ehitada.*
 ## Kuidas seda repo't kasutada
 
 1. Vajuta ülal paremas nurgas **Fork**.
