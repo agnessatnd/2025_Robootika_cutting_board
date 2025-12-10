@@ -18,8 +18,9 @@ Seade on ehitatud nii, et see oleks töökindel, korduv ja täpne. Lõikeprotses
 ## 2. Sisendite loetelu
 **Millised on süsteemi poolt loetavad / mõõdetavad sisendid? Millega neid mõõdetakse / tuvastatakse?**
 
-Süsteem töötab autonoomselt. Allpool on kirjeldatud kõik muutujad ja 
-väärtused, mida programm jälgib ja mille põhjal tehakse otsuseid.
+- Toide (Arduino 5V ja stepperi toiteallikas)
+
+Allpool on kirjeldatud kõik muutujad ja väärtused, mida programm jälgib ja mille põhjal tehakse otsuseid.
 
 #### 1. Ajasignaal lõikamise kestuse mõõtmiseks
 
