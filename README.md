@@ -39,8 +39,8 @@ Tööpõhimõte:
 2. Muuda `docs/PROJEKTIDOKUMENTATSIOON.md` enda projekti järgi.
 3. Pane kogu kood kataloogi `src/`.
 4. Pane skeemid ja riistvara info kataloogi `hardware/`.
-5. Lisa pildid / videod kataloogi `media/`.
-6. Commiti regulaarselt (isegi pooleliolevad sammud on okei – oluline on arengulugu).
+5. Vaata oleval veebilehel ["Wiki"](https://github.com/agnessatnd/2025_Robootika_cutting_board/wiki) pilte tehtud tööst ja töövoogu kirjeldust.
+7. Commiti regulaarselt (isegi pooleliolevad sammud on okei – oluline on arengulugu).
 
 ## Projekti minimaalne sisu hindamiseks
 
