@@ -1,6 +1,6 @@
 # Projekti dokumentatsioon
 
-## 1. Projekti eesmärk ja seadme lühikirjeldus (Diana)
+## 1. Projekti eesmärk ja seadme lühikirjeldus
 **Mis asi see on, mida ja miks me teeme? Millist praktilist probleemi see lahendab?**
 
 - Meie projekti eesmärk on luua automaatne lõikelaud koos lõikemehhanismiga, mis suudab töötada korduvate tsüklite kaupa. Lõikelaud liigutab materjali või nuga täpselt etteantud sammudega edasi ning mehhanism viib noa automaatselt alla, teeb kontrollitud lõike ja tõstab selle seejärel algasendisse.
@@ -15,7 +15,7 @@ Seade on ehitatud nii, et see oleks töökindel, korduv ja täpne. Lõikeprotses
 
 ---
 
-## 2. Sisendite loetelu (Diana)
+## 2. Sisendite loetelu
 **Millised on süsteemi poolt loetavad / mõõdetavad sisendid? Millega neid mõõdetakse / tuvastatakse?**
 
 Süsteem töötab autonoomselt. Allpool on kirjeldatud kõik muutujad ja 
@@ -117,7 +117,7 @@ väärtused, mida programm jälgib ja mille põhjal tehakse otsuseid.
 
 ---
 
-## 3. Väljundite loetelu (Agnessa)
+## 3. Väljundite loetelu
 
 Süsteem juhib kahte erinevat mootorit: stepper mootorit ja servo mootorit.
 
@@ -131,7 +131,7 @@ Süsteem juhib kahte erinevat mootorit: stepper mootorit ja servo mootorit.
 
 ---
 
-## 4. Nõuded loodavale seadmele (Aleksandra)
+## 4. Nõuded loodavale seadmele
 **Reeglid seadme tööks:**
 **Kui stepper liigub edasi ja jõuab määratud sammude intervalli (nt iga 50 sammu), siis:**
 - Stepper peatub automaatselt.
@@ -165,7 +165,7 @@ Süsteem juhib kahte erinevat mootorit: stepper mootorit ja servo mootorit.
 
 ---
 
-## 5. Süsteemi füüsiliste komponentide loetelu (Alina)
+## 5. Süsteemi füüsiliste komponentide loetelu
 
 Allpool on loetletud kõik füüsilised komponendid, millest automaatne lõikelaud koosneb. Iga komponent on valitud nii, et seadet oleks võimalik lihtsalt taastoota ja ehitada ka teistel kasutajatel.
 
@@ -229,7 +229,7 @@ Allpool on loetletud kõik füüsilised komponendid, millest automaatne lõikela
 
 
 
-## 6. Ühendusskeem (Agnessa)
+## 6. Ühendusskeem
 
 <img width="1397" height="513" alt="image" src="https://github.com/user-attachments/assets/740fb9a5-9871-4d0a-a167-72d28a15f7f0" />
 
@@ -279,7 +279,7 @@ Kondensaator:
 
 ---
 
-## 7. Süsteemi juhtiv kood (Aleksandra)
+## 7. Süsteemi juhtiv kood
 **Kirjeldus:**  
 Arduino juhib automaatset lõikelauda: stepper liigutab materjali horisontaalselt ja servo tõstab/laskub nuga vertikaalselt. Seade töötab tsükliliselt, autonoomselt ja kordab lõikeprotsessi. (Tegelik töötav kood:cuttingBoard.ino)
 
