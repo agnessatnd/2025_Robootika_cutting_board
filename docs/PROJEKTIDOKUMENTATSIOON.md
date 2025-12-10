@@ -118,13 +118,16 @@ väärtused, mida programm jälgib ja mille põhjal tehakse otsuseid.
 ---
 
 ## 3. Väljundite loetelu (Agnessa)
-**Mida süsteem teeb / muudab? Millega väljund realiseeritakse?**
 
-Näited (asenda enda projektiga):
-- Ventilaator pöörleb kiiremini / aeglasemalt → DC mootor
-- Ventilaator suunab õhu vasakule / paremale → servo
-- LED süttib / kustub → LED
-- Ekraanile kuvatakse temperatuur → OLED ekraan
+Süsteem juhib kahte erinevat mootorit: stepper mootorit ja servo mootorit.
+
+- Stepper-mootor liigub edasi ja tagasi vastavalt etteantud sammude arvule → Stepper-mootor (A4988 draiver)
+  - Arduino saadab A4988 draiverile STEP-signaale, millest igaüks liigutab mootorit ühe sammu võrra.
+  - DIR-signaal määrab, kas mootor liigub edasi või tagasi.
+  - Nii saab süsteem täpselt kontrollida mootori liikumise ulatust ja suunda, näiteks liigutada mehhanismi kindlal vahemaal edasi-tagasi.
+- Servomootor liigub üles ja alla vastavalt etteantud kraadidele → Servomootor (PWM signaal Arduinost)
+  - Servo saab oma asendikäsklused Arduino PWM-signaali järgi.
+  - Süsteem saab määrata konkreetse nurga (nt 0°, 45°, 90°), ning servo liigub täpselt sellele asendile.
 
 ---
 
