@@ -180,29 +180,51 @@ Tabelina või punktidena. Nt:
 ---
 
 ## 6. Ühendusskeem (Agnessa)
-**Kuidas kõik osad on omavahel ühendatud?**
 
 <img width="1607" height="555" alt="image" src="https://github.com/user-attachments/assets/b496e2bc-8305-40bb-9029-c12f638ff543" />
 
 Skeemi kirjeldus:
 
-Arduino → A4988
+Arduino UNO:
+- D3 → A4988 STEP
+- D2 → A4988 DIR
+- D5 → Servo signaal
+- 5V → A4988 VDD ja Servo +5V
+- GND → A4988 GND, Servo GND
 
-- Lisa siia pilt või skeemi kirjeldus.
-- Fail `hardware/wiring-diagram.png` peab näitama vähemalt:
-  - milline pin Arduinol läheb millise komponendi sisendisse,
-  - kuidas on toide ühendatud.
+A4988 Stepper-mootori draiver:
 
-Kui skeemi pole veel joonistatud, siis vähemalt kirjelda tekstina, nt:
+- VDD → Arduino 5V
+- GND → Arduino GND
+- STEP → Arduino D3
+- DIR → Arduino D2
+- 1A / 1B → Samm-mootori mähis A
+- 2A / 2B → Samm-mootori mähis B
+- VMOT → +V
+- GND → GND
+- RESET on ühendatud SLEEP piniga, et hoida draiverit ärkvel ja vältida unerežiimi.
 
-- IR-sensor OUT → Arduino digipin 7  
-- Servo signaal → Arduino digipin 6  
-- Mootoridraiveri IN1 → Arduino digipin 2  
-- Mootoridraiveri IN2 → Arduino digipin 3  
-- Mootoridraiveri ENA → Arduino pin 5 (PWM)  
-- GND kõik ühises massis
+Stepper mootor:
 
-👉 _Skeem peab lõpuks olemas olema, mitte ainult tekst._
+- Mähis A → 1A / 1B
+- Mähis B → 2A / 2B
+
+Servo:
+
+- Signaal → Arduino D5
+- +5V → Arduino 5V
+- GND → Arduino GND
+
+Väline toiteallikas (umbes 6V):
+
+- Toiteallika +  → breadboardi +V riba
+- Toiteallika –  → breadboardi GND riba
+
+Takisti:
+
+- +(pikem jalg) → breadboardi +V riba
+- – (lühem jalg) → breadboardi GND riba
+
 
 ---
 
