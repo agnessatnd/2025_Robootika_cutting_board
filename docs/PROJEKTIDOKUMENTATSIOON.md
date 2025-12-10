@@ -224,8 +224,8 @@ Allpool on loetletud kõik füüsilised komponendid, millest automaatne lõikela
 - **Jumper-kaablid (M–M, M–F)**
   - Elektriliste ühenduste tegemiseks komponentide vahel
 
-- **Takisti (nt 10 kΩ, vajadusel)**
-  - Kasutatakse signaalide stabiliseerimiseks või katsetamisel
+- **Kondensaator (47 mikrofaradi)**
+  - Kasutatakse toitepinge silumiseks
 
 
 
@@ -270,10 +270,10 @@ Väline toiteallikas (umbes 6V):
 - Toiteallika +  → breadboardi +V riba
 - Toiteallika –  → breadboardi GND riba
 
-Takisti:
+Kondensaator:
 
-- +(pikem jalg) → breadboardi +V riba
-- – (lühem jalg) → breadboardi GND riba
+- +(pikem jalg) → breadboardi +
+- – (lühem jalg) → breadboardi -
 
 
 ---
