@@ -171,11 +171,11 @@ Allpool on loetletud kõik füüsilised komponendid, millest automaatne lõikela
 
 ### Mikrokontroller ja juhtimine
 
-- **Arduino Uno R3**
+- **Arduino Uno**
   - Mikrokontroller, mis juhib kogu süsteemi loogikat
   - Vastutab servo ja stepper-mootori juhtimise, ajastuste ja olekute eest
   - Toide: 5V
-  - Link: https://store.arduino.cc/products/arduino-uno-rev3
+  - https://store.arduino.cc/products/arduino-uno-rev3
 
 ### Mootorid ja liikumine
 
@@ -188,35 +188,35 @@ Allpool on loetletud kõik füüsilised komponendid, millest automaatne lõikela
   - Juhib stepper-mootori samme ja suunda
   - Võimaldab reguleerida sammude kiirust ja täpsust
   - Toide: loogika 5V, mootor eraldi toiteallikast
-  - Link: https://www.pololu.com/product/1182
+  - https://www.pololu.com/product/1182
 
-- **Servomootor (nt SG90 või MG90S)**
+- **Servomootor (MS24 Digital Servo)**
+  - Digitaalne servomootor
   - Vastutab noa vertikaalse liikumise eest (üles/alla)
   - Juhtimine PWM-signaaliga Arduino kaudu
-  - Valik:
-    - SG90 – kerge koormuse jaoks
-    - MG90S – metallhammasratastega, suurem vastupidavus
+  - Suurem täpsus ja jõud võrreldes tavaliste SG90 tüüpi servodega
 
 ### Lõikemehhanism
 
 - **Nuga / lõiketera**
   - Mehaaniline lõikeelement
   - Kinnitatud servomootori hoova külge
-  - Valik sõltub lõigatavat materjalist (paber, kile, pehme plastik jne)
 
-- **Lõikelaua alus (mehhaaniline raam)**
+- **Lõikelaua alus**
+  - Valmistatud vahtplaadist
   - Hoiab lõigatavat materjali paigal
-  - Võib olla:
-    - puidust
-    - alumiiniumist
-    - 3D-prinditud osaliselt
   - Tagab stabiilsuse lõikamise ajal
+
+- **3D-prinditud servomootori hoidik**
+  - Kasutatakse servomootori kinnitamiseks lõikemehhanismi külge
+  - Parandab mehhanismi stabiilsust ja täpsust
+  - Mudel on ise valmistatud ja prinditud
 
 ### Toide ja ühendused
 
 - **Väline toiteallikas (≈ 6–12V, ≥ 2A)**
   - Toidab stepper-mootorit läbi A4988 draiveri
-  - Servo ja Arduino saavad 5V toite Arduinolt või stabilisaatori kaudu
+  - Servo ja Arduino saavad 5V toite Arduinolt
 
 - **Breadboard (katseplaat)**
   - Kasutatakse ühenduste loomiseks ilma jootmiseta
@@ -225,7 +225,8 @@ Allpool on loetletud kõik füüsilised komponendid, millest automaatne lõikela
   - Elektriliste ühenduste tegemiseks komponentide vahel
 
 - **Takisti (nt 10 kΩ, vajadusel)**
-  - Kasutatakse signaalide stabiliseerimiseks või katse-eesmärgil
+  - Kasutatakse signaalide stabiliseerimiseks või katsetamisel
+
 
 
 ## 6. Ühendusskeem (Agnessa)
