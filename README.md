@@ -15,7 +15,7 @@ Meie meeskonna eesmärk on luua automaatne lõikelaud koos lõikemehhanismiga, m
 - **Toiteallikas**— kasutame 6V
 - **Lõiketera**
 - **Juhtmed** -«isane-isane» ja «emane-isane»
-- **Takisti**
+- **Kondensaator 47 mikrofaradi **
 - **Platvormi kruvid**
 - **Kood on olemas src/сuttingBoard.ino**
 
