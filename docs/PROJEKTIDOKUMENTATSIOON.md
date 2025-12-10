@@ -231,7 +231,7 @@ Allpool on loetletud kõik füüsilised komponendid, millest automaatne lõikela
 
 ## 6. Ühendusskeem (Agnessa)
 
-<img width="1607" height="555" alt="image" src="https://github.com/user-attachments/assets/b496e2bc-8305-40bb-9029-c12f638ff543" />
+<img width="1397" height="513" alt="image" src="https://github.com/user-attachments/assets/740fb9a5-9871-4d0a-a167-72d28a15f7f0" />
 
 Skeemi kirjeldus:
 
@@ -241,6 +241,7 @@ Arduino UNO:
 - D5 → Servo signaal
 - 5V → A4988 VDD ja Servo +5V
 - GND → A4988 GND, Servo GND
+- GND → breadboardi -
 
 A4988 Stepper-mootori draiver:
 
