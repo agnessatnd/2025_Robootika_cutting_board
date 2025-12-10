@@ -5,7 +5,7 @@
 
 - Meie projekti eesmärk on luua automaatne lõikelaud koos lõikemehhanismiga, mis suudab töötada korduvate tsüklite kaupa. Lõikelaud liigutab materjali või nuga täpselt etteantud sammudega edasi ning mehhanism viib noa automaatselt alla, teeb kontrollitud lõike ja tõstab selle seejärel algasendisse.
 - Seadet saab kasutada näiteks kus on vaja teha täpseid ja korduvaid lõikeid ilma käsitsi tegutsemiseta. See võib olla kasulik tootmises, hobi-projektides, laboriseadmetes või lihtsalt automatiseeritud lõikamise protsessides, kus on vaja ühtlust, täpsust ja kordust.
-- Peamised komponendid: servo mootor , AA4988 driver, stepper mootor, arduino, nuga, lõikelaua alus. 
+- Peamised komponendid: servo mootor , driver, stepper mootor, arduino, nuga, lõikelaua alus. 
 
 **Seadme kirjeldus**
 
